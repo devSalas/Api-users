@@ -1,4 +1,8 @@
+const User= require('../database/user')
+
+
 const getAllUsers=()=>{
+  const allUsers=User.getAllUsers()
   return;
 }
 const getOneUser=()=>{
@@ -12,4 +16,11 @@ const updateOneUser=()=>{
 }
 const deleteOneUser=()=>{
   return;
+}
+module.exports={
+  getAllUsers,
+  getOneUser,
+  createNewUser,
+  updateOneUser,
+  deleteOneUser
 }
