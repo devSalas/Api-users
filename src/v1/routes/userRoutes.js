@@ -7,7 +7,7 @@ const usersController= require("../../controllers/usersControler")
 router
   .get("/",usersController.getAllUsers)
   .get("/:userId",usersController.getOneUser)
-  .post("/:userId",usersController.createNewUser)
+  .post("/",usersController.createNewUser)
   .patch("/:userId",usersController.updateOneUser)
   .delete("/:userId",usersController.deleteOneUser)
 

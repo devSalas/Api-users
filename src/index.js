@@ -11,5 +11,5 @@ app.use("/api/v1/users",v1router)
 
 
 app.listen(PORT,()=>{
-  console.log("server on encendido")
+  //console.log("server on encendido")
 })

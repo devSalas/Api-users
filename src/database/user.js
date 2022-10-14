@@ -27,12 +27,22 @@ const getAllUsers=async()=>{
   return resultado
 }
 const getOneUser=async(id)=>{
-  console.log(id)
   const [resultado] = await Pool.query(`SELECT * FROM USERS where id=${id}`) 
   return resultado
+}
+const createNewUser=async(newUser)=>{
+  const allUsers= await getAllUsers()
+
+  const isAlreadyAdded= allUsers.findIndex(el=>(el.name == newUser.name)> -1)
+  if(isAlreadyAdded)return
+  //console.log(newUser)
+
+  Pool.query(`INSERT INTO USERS(id,name)VALUES("null","${newUser.name}")`) 
+  return newUser;
 }
 
 module.exports={
   getAllUsers,
   getOneUser,
+  createNewUser
 }

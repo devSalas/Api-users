@@ -11,12 +11,22 @@ const getOneUser =async (req,res)=>{
   res.send(user)
 }
 const createNewUser =async (req,res)=>{
-  const createUser=await usersService.createNewUser(req.params.userId);
-  res.send(`Get all users ${req.params.userId}`)
+  const {body}= req;
+
+  if(!body.name ) return;
+    
+  const newUser={
+    name:body.name,
+  }
+  const createNewUser= await usersService.createNewUser(newUser);
+
+  res.status(201).send({status:"ok",data:createNewUser});
+
+
 }
 const updateOneUser =async (req,res)=>{
   const updatedOneUser=await usersService.updateOneUser(req.params.userId);
-  res.send("Get all users")
+  res.send("Usuario Creado")
 }
 const deleteOneUser =async (req,res)=>{
   usersService.deleteOneUser(req.params.userId);
