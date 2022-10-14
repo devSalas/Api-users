@@ -1,23 +1,24 @@
 const  usersService= require("../services/usersServie")
 
 
-const getAllUsers = (req,res)=>{
-  const allusers= usersService.getAllUsers();
-  res.send("Get all users")
+const getAllUsers =async (req,res)=>{
+  const users= await usersService.getAllUsers()
+
+  res.send(users)
 }
-const getOneUser = (req,res)=>{
-  const user= usersService.getOneUser(req.params.userId);
-  res.send(`Get one user ${req.params.userId}`)
+const getOneUser =async (req,res)=>{
+  const user=await usersService.getOneUser(req.params.userId);
+  res.send(user)
 }
-const createNewUser = (req,res)=>{
-  const createUser= usersService.createNewUser(req.params.userId);
+const createNewUser =async (req,res)=>{
+  const createUser=await usersService.createNewUser(req.params.userId);
   res.send(`Get all users ${req.params.userId}`)
 }
-const updateOneUser = (req,res)=>{
-  const updatedOneUser= usersService.updateOneUser(req.params.userId);
+const updateOneUser =async (req,res)=>{
+  const updatedOneUser=await usersService.updateOneUser(req.params.userId);
   res.send("Get all users")
 }
-const deleteOneUser = (req,res)=>{
+const deleteOneUser =async (req,res)=>{
   usersService.deleteOneUser(req.params.userId);
   res.send("Get all users")
 }

@@ -1,12 +1,13 @@
-const User= require('../database/user')
+const User= require("../database/user")
 
 
 const getAllUsers=()=>{
-  const allUsers=User.getAllUsers()
-  return;
+  const users= User.getAllUsers()
+  return users;
 }
-const getOneUser=()=>{
-  return;
+const getOneUser=(id)=>{
+  const user= User.getOneUser(id)
+  return user;
 }
 const createNewUser=()=>{
   return;
