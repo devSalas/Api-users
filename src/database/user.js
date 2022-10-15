@@ -40,9 +40,23 @@ const createNewUser=async(newUser)=>{
   Pool.query(`INSERT INTO USERS(id,name)VALUES("null","${newUser.name}")`) 
   return newUser;
 }
+const UpdateOneUser=async(id,body)=>{
+  const [resultado] = await Pool.query(`UPDATE USERS SET name="${body.name}",Email="${body.Email}" ,password="${body.password}",lastName="${body.lastName}" WHERE id=${id}`) 
+  console.log(resultado)
+  return resultado;
+}
+const deleteOneUser=async(id)=>{
+  const isRegistered= await getOneUser(id)
+  if(isRegistered.length ==0) return;
+  const [resultado] = await Pool.query(`DELETE from USERS where id=${id}`)
+  return resultado;
+}
+
 
 module.exports={
   getAllUsers,
   getOneUser,
-  createNewUser
+  createNewUser,
+  UpdateOneUser,
+  deleteOneUser
 }

@@ -21,11 +21,15 @@ const createNewUser=(newUser)=>{
    const createdUser= User.createNewUser(userToInsert)
   return createdUser;
 }
-const updateOneUser=()=>{
-  return;
+const updateOneUser=(id,body)=>{
+    const updatedOneUser= User.UpdateOneUser(id,body)
+  return updateOneUser;
 }
-const deleteOneUser=()=>{
-  return;
+
+const deleteOneUser=(id)=>{
+  const deleteOneUser = User.deleteOneUser(id)
+  
+  return deleteOneUser;
 }
 module.exports={
   getAllUsers,

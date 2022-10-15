@@ -8,6 +8,7 @@ const getAllUsers =async (req,res)=>{
 }
 const getOneUser =async (req,res)=>{
   const user=await usersService.getOneUser(req.params.userId);
+  if(user.length==0 ) return res.send("NO FOUND")
   res.send(user)
 }
 const createNewUser =async (req,res)=>{
@@ -25,12 +26,16 @@ const createNewUser =async (req,res)=>{
 
 }
 const updateOneUser =async (req,res)=>{
-  const updatedOneUser=await usersService.updateOneUser(req.params.userId);
-  res.send("Usuario Creado")
+  const updatedOneUser=await usersService.updateOneUser(req.params.userId,req.body);
+
+  console.log(updatedOneUser)
+  console.log(req.params.userId,req.body)
+  res.send("User updated")
 }
 const deleteOneUser =async (req,res)=>{
-  usersService.deleteOneUser(req.params.userId);
-  res.send("Get all users")
+  const userDeleted=await usersService.deleteOneUser(req.params.userId);
+  if(!userDeleted) res.send("USER NOT FOUND")
+  res.send("User Deleted")
 }
 
 module.exports={
