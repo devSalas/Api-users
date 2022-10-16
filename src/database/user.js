@@ -32,7 +32,6 @@ const getOneUser=async(id)=>{
 }
 const createNewUser=async(newUser)=>{
   const allUsers= await getAllUsers()
-
   const isAlreadyAdded= allUsers.findIndex(el=>(el.name == newUser.name)> -1)
   if(isAlreadyAdded)return
   //console.log(newUser)
