@@ -28,12 +28,12 @@ const updateOneUser =async (req,res)=>{
 
   console.log(updatedOneUser)
   console.log(req.params.userId,req.body)
-  res.send("User updated")
+  res.send({response:"User updated"})
 }
 const deleteOneUser =async (req,res)=>{
   const userDeleted=await usersService.deleteOneUser(req.params.userId);
-  if(!userDeleted) res.send("USER NOT FOUND")
-  res.send("User Deleted")
+  if(!userDeleted) res.send({error:"USER NOT FOUND"})
+  res.send({response:"User Deleted"})
 }
 
 module.exports={
