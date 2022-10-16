@@ -16,6 +16,9 @@ const createNewUser =async (req,res)=>{
   if(!body.name ) return res.send({error:"ha fallado, tal vez porque no ingresaste datos, como el nombre"});
   const newUser={
     name:body.name,
+    lastName:body.lastName,
+    Email:body.email,
+    password:body.password
   }
   const createNewUser= await usersService.createNewUser(newUser);
 

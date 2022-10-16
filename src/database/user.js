@@ -36,11 +36,11 @@ const createNewUser=async(newUser)=>{
   if(isAlreadyAdded)return
   //console.log(newUser)
 
-  Pool.query(`INSERT INTO USERS(id,name)VALUES(null,"${newUser.name}")`) 
+  Pool.query(`INSERT INTO USERS(id,name,Email,password,lastName)VALUES(null,"${newUser.name}","${newUser.Email}","${newUser.password}","${newUser.lastName}")`) 
   return newUser;
 }
 const UpdateOneUser=async(id,body)=>{
-  const [resultado] = await Pool.query(`UPDATE USERS SET name="${body.name}",Email="${body.Email}" ,password="${body.password}",lastName="${body.lastName}" WHERE id=${id}`) 
+  const [resultado] = await Pool.query(`UPDATE USERS SET name="${body.name}",Email="${body.email}" ,password="${body.password}",lastName="${body.lastName}" WHERE id=${id}`) 
   console.log(resultado)
   return resultado;
 }
