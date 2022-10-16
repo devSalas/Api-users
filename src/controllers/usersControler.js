@@ -13,7 +13,7 @@ const getOneUser =async (req,res)=>{
 }
 const createNewUser =async (req,res)=>{
   const {body}= req;
-  if(!body.name ) return res.send("ha fallado, tal vez porque no ingresaste datos, como el nombre");
+  if(!body.name ) return res.send({error:"ha fallado, tal vez porque no ingresaste datos, como el nombre"});
   const newUser={
     name:body.name,
   }
