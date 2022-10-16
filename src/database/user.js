@@ -36,7 +36,7 @@ const createNewUser=async(newUser)=>{
   if(isAlreadyAdded)return
   //console.log(newUser)
 
-  Pool.query(`INSERT INTO USERS(id,name)VALUES("null","${newUser.name}")`) 
+  Pool.query(`INSERT INTO USERS(id,name)VALUES(null,"${newUser.name}")`) 
   return newUser;
 }
 const UpdateOneUser=async(id,body)=>{
